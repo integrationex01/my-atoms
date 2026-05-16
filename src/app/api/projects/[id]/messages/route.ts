@@ -26,5 +26,7 @@ export async function GET(
     orderBy: { createdAt: "asc" },
   });
 
-  return NextResponse.json({ messages });
+  return NextResponse.json({ messages }, {
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
 }

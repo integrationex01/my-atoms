@@ -18,7 +18,9 @@ export async function GET() {
     orderBy: { updatedAt: "desc" },
   });
 
-  return NextResponse.json(projects);
+  return NextResponse.json(projects, {
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
 }
 
 export async function POST(request: Request) {
@@ -45,5 +47,8 @@ export async function POST(request: Request) {
     },
   });
 
-  return NextResponse.json(project, { status: 201 });
+  return NextResponse.json(project, {
+    status: 201,
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
 }

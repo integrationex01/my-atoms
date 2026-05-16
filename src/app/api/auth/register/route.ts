@@ -42,9 +42,10 @@ export async function POST(request: Request) {
 
     const token = signToken({ userId: user.id, username: user.username });
 
-    const response = NextResponse.json({
-      user: { id: user.id, username: user.username },
-    });
+    const response = NextResponse.json(
+      { user: { id: user.id, username: user.username } },
+      { headers: { "Content-Type": "application/json; charset=utf-8" } }
+    );
 
     response.cookies.set("token", token, {
       httpOnly: true,

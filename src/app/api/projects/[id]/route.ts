@@ -29,5 +29,7 @@ export async function DELETE(
     where: { id },
   });
 
-  return NextResponse.json({ success: true });
+  return NextResponse.json({ success: true }, {
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
 }

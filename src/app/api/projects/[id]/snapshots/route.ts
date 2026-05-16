@@ -26,5 +26,7 @@ export async function GET(
     orderBy: { version: "desc" },
   });
 
-  return NextResponse.json({ snapshots });
+  return NextResponse.json({ snapshots }, {
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
 }
